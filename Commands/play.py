@@ -109,6 +109,7 @@ class Play(commands.Cog):
                     for i in random_country:
                         countries.append(i[0])
                     random_country = random.choice(countries)
+                    countries.remove(random_country)
                     # get a random image from the images folder
                     image = await KumosLab.data.flagdata(country=random_country)
 
