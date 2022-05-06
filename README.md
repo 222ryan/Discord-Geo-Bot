@@ -6,8 +6,6 @@
       </p>
                         
 GeoBot is a Discord Bot that includes games and fun geography-type features!
-
-GEOBOT RELEASES AT 15:00 BST
                         
 <ul>
 <li>Offers a plethora of config options to easily customise how the bot functions.</li>
