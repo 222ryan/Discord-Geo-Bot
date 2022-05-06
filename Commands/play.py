@@ -102,17 +102,16 @@ class Play(commands.Cog):
                 await KumosLab.set.gameMessage(guild=ctx.guild, user=ctx.author, id=message.id)
                 correct_countries = []
                 countries = []
+                random_country = await KumosLab.data.alldata()
+                for i in random_country:
+                    countries.append(i[0])
                 while round != 10:
                     message = await KumosLab.get.gameMessage(guild=ctx.guild, user=ctx.author)
                     message = await ctx.fetch_message(message)
-                    random_country = await KumosLab.data.alldata()
-                    for i in random_country:
-                        countries.append(i[0])
                     random_country = random.choice(countries)
                     countries.remove(random_country)
-                    # get a random image from the images folder
                     image = await KumosLab.data.flagdata(country=random_country)
-
+                    countries = countries
                     answer_1 = random.choice(countries)
                     countries.remove(answer_1)
                     answer_2 = random.choice(countries)
