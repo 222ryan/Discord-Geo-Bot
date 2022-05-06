@@ -16,7 +16,7 @@ GeoBot is a Discord Bot that includes games and fun geography-type features!
 
 Recommended Bot Permission Code is: **8858397808**
                         
-<p>Running into problems? Want to submit a bug report or suggestion? Join our [Support Server](https://discord.gg/UgvTHmuyNK)</p>
+Running into problems? Want to submit a bug report or suggestion? Join our [Support Server](https://discord.gg/UgvTHmuyNK)
 
 
 # The Features
