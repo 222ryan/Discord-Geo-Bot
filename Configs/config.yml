@@ -1,0 +1,51 @@
+# █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █
+#                   WELCOME TO THE CONFIG
+#                            FOR
+#                          GEO-BOT
+# █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █
+
+# The Prefix that the bot will use. (Default: "!") **Note: The bot also accepts @mentions**
+Prefix: "!"
+
+# Enable the bot status. (Default: true)
+# If you want to disable the bot status, set this to false.
+status: true
+
+# The bot status array (Default: ["WATCHING @members members!", "PLAYING with @commands command!", "LISTENING to @prefix!", "WATCHING over @guilds guilds!"]) - The bot will cycle through this randomly.
+# You can add as many statuses as you want.
+# Make sure to include WATCHING, PLAYING, LISTENING.
+# You may use the following variables:
+# - @members - The amount of members in the server.
+# - @guilds - The amount of guilds the bot is in.
+# - @prefix - The prefix that the bot is using.
+# - @commands - The amount of commands the bot has.
+statusArray: ["WATCHING @members members!", "PLAYING with @commands commands!", "LISTENING @prefix!", "WATCHING over @guilds guilds!"]
+
+# How often the bot status should change (Default: 60) *In Seconds*
+statusInterval: 60
+
+# How the bot should register users (Default: on_startup)
+# - on_startup - The bot will register all users new/missing on startup.
+# - on_message - The bot will register all users new/missing on their first message.
+data_register_type: "on_startup"
+
+# Name The Flag coins per correct answer (Default: 25)
+ntf_coins_per_correct_answer: 10
+
+# Name The Flag coins per game win (Default: 200)
+ntf_coins_per_game_win: 100
+
+# The price of the higher or lower game (Default: 2500)
+higher_lower_price: 2500
+
+# Higher Or Lower coins per correct answer (Default: 25)
+higher_lower_coins_per_correct_answer: 25
+
+# The price to buy the Guess Shape game (Default: 5000)
+guess_shape_price: 5000
+
+# Guess Shape coins per win (Default: 300)
+guess_shape_coins_per_win: 300
+
+# Whether the help command is enabled or disabled (Default: true)
+help_enabled: true

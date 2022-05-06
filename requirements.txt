@@ -1,0 +1,8 @@
+ruamel.yaml
+discord.py
+pymongo
+dnspython
+pyfiglet~=0.8.post1
+python-dotenv~=0.20.0
+easy-pil
+googletrans==4.0.0rc1
