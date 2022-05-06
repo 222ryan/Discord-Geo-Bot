@@ -72,6 +72,8 @@ class Play(commands.Cog):
             {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
 
         if data_search:
+            if data_search['game_type'] != "gtf":
+                return
             category_id = await KumosLab.get.gameCategory(guild=ctx.guild)
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
@@ -377,6 +379,8 @@ class Play(commands.Cog):
             {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
 
         if data_search:
+            if data_search['game_type'] != "hol":
+                return
             category_id = await KumosLab.get.gameCategory(guild=ctx.guild)
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
@@ -584,6 +588,8 @@ class Play(commands.Cog):
             {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
 
         if data_search:
+            if data_search['game_type'] != "gs":
+                return
             category_id = await KumosLab.get.gameCategory(guild=ctx.guild)
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
