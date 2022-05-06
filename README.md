@@ -16,7 +16,7 @@ GEOBOT RELEASES AT 15:00 BST
 <li>MongoDB Support
 </ul>
 
-Recommended Bot Permission Code is: **8858397776**
+Recommended Bot Permission Code is: **8858397808**
                         
 <p>Running into problems? Want to submit a bug report or suggestion? Join our [Support Server](https://discord.gg/UgvTHmuyNK)</p>
 
