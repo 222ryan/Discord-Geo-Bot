@@ -101,11 +101,11 @@ class Play(commands.Cog):
                 message = await channel.send(embed=embed)
                 await KumosLab.set.gameMessage(guild=ctx.guild, user=ctx.author, id=message.id)
                 correct_countries = []
+                countries = []
                 while round != 10:
                     message = await KumosLab.get.gameMessage(guild=ctx.guild, user=ctx.author)
                     message = await ctx.fetch_message(message)
                     random_country = await KumosLab.data.alldata()
-                    countries = []
                     for i in random_country:
                         countries.append(i[0])
                     random_country = random.choice(countries)
@@ -113,8 +113,14 @@ class Play(commands.Cog):
                     # get a random image from the images folder
                     image = await KumosLab.data.flagdata(country=random_country)
 
-                    answers_array = [random_country, random.choice(countries), random.choice(countries),
-                                     random.choice(countries)]
+                    answer_1 = random.choice(countries)
+                    countries.remove(answer_1)
+                    answer_2 = random.choice(countries)
+                    countries.remove(answer_2)
+                    answer_3 = random.choice(countries)
+                    countries.remove(answer_3)
+
+                    answers_array = [random_country, answer_1, answer_2, answer_3]
                     random.shuffle(answers_array)
 
                     # send the image
