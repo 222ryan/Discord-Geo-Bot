@@ -106,7 +106,7 @@ async def leaderboard(self=None, ctx=None, guild=None, game='gtf'):
                             embed.add_field(name=f"#{x + 1 + num - len(user_list)}: {user_list[x]}",
                                             value=f"```Coins: {coins_list[x]:,}🪙\nWins: {wins_list[x]:,}\nLosses: {losses_list[x]:,}```", inline=True)
                         user_list.clear()
-                        wins.clear()
+                        wins_list.clear()
                         losses_list.clear()
                         coins_list.clear()
                         embed.set_footer(text=f"Page {page}/{len(pages)}")
