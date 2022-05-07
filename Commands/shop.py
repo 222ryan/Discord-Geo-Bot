@@ -21,6 +21,10 @@ class Shop(commands.Cog):
 
     @commands.command(name='shop', aliases=['store'])
     async def shop(self, ctx, buy=None, *, item=None):
+        db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+        if db_search["Maintenance"] is True:
+            await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+            return
         if buy is None:
             embed = discord.Embed(
                 title="🛒 WELCOME TO THE SHOP",

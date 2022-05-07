@@ -27,6 +27,11 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+        if db_search:
+            geo.update_one({"Bot": True}, {"$set": {"Maintenance": False}})
+        else:
+            geo.insert_one({"Bot": True, "Maintenance": False})
         for guild in self.client.guilds:
             guild_search = geo.find_one({"guildid": guild.id, "bot_type": "GeoBot-Server"})
             if guild_search is None:

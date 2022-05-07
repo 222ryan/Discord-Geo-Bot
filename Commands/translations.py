@@ -1,7 +1,11 @@
+import asyncio
+
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from googletrans import Translator
+
+from System.events import geo
 
 load_dotenv()
 
@@ -24,6 +28,14 @@ class Translations(commands.Cog):
 
     @commands.command(name='translate', aliases=['tr'])
     async def translate(self, ctx, channel: discord.TextChannel = None, message: int = None, language='en'):
+        db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+        if db_search["Maintenance"] is True:
+            await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+            await asyncio.sleep(10)
+            await channel.delete()
+            geo.delete_one(
+                {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
+            return
         if channel is None:
             embed = discord.Embed(description="`🔴` **Error**: `Please enter a valid channel`")
             await ctx.reply(embed=embed)

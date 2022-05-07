@@ -33,6 +33,10 @@ class Play(commands.Cog):
 
     @commands.command(name='play', aliases=['p', 'pl', 'game'])
     async def play(self, ctx, *, gameName: str = None):
+        db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+        if db_search["Maintenance"] is True:
+            await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+            return
         data_search = geo.find_one(
             {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
         if data_search:
@@ -78,6 +82,14 @@ class Play(commands.Cog):
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
             channel = discord.utils.get(category.channels, id=int(channel_id))
+            db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+            if db_search["Maintenance"] is True:
+                await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+                await asyncio.sleep(10)
+                await channel.delete()
+                geo.delete_one(
+                    {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
+                return
             if channel.id == ctx.message.channel.id:
                 embed = discord.Embed(title="`🌎` GET READY, THE GAME BEGINS IN 3 SECONDS! YOU HAVE 2 MINUTES TO "
                                             "COMPLETE THE GAME.")
@@ -391,6 +403,14 @@ class Play(commands.Cog):
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
             channel = discord.utils.get(category.channels, id=int(channel_id))
+            db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+            if db_search["Maintenance"] is True:
+                await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+                await asyncio.sleep(10)
+                await channel.delete()
+                geo.delete_one(
+                    {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
+                return
             if channel.id == ctx.message.channel.id:
                 embed = discord.Embed(title="`🌎` GET READY, THE GAME BEGINS IN 3 SECONDS! YOU HAVE 5 MINUTES!")
                 messsage = await channel.send(embed=embed)
@@ -600,6 +620,14 @@ class Play(commands.Cog):
             category = discord.utils.get(ctx.guild.categories, id=int(category_id))
             channel_id = data_search['channel_id']
             channel = discord.utils.get(category.channels, id=int(channel_id))
+            db_search = geo.find_one({"Bot": True, "Maintenance": {"$exists": True}})
+            if db_search["Maintenance"] is True:
+                await ctx.reply("⚒️ The bot is currently under maintenance. The bot will return within **10** minutes.")
+                await asyncio.sleep(10)
+                await channel.delete()
+                geo.delete_one(
+                    {'player_id': ctx.author.id, "guild": ctx.guild.id, "game_type": {"$exists": True}})
+                return
             if channel.id == ctx.message.channel.id:
                 embed = discord.Embed(title="`🌎` GET READY, THE GAME BEGINS IN 3 SECONDS! YOU HAVE 5 MINUTES!")
                 messsage = await channel.send(embed=embed)

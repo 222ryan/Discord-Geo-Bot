@@ -7,6 +7,9 @@
 # The Prefix that the bot will use. (Default: "!") **Note: The bot also accepts @mentions**
 Prefix: "!"
 
+# The bots owner ID. (Default: )
+OwnerID: 512760269764820993
+
 # Enable the bot status. (Default: true)
 # If you want to disable the bot status, set this to false.
 status: true

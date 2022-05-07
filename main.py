@@ -25,6 +25,9 @@ with open("Configs/config.yml", "r", encoding="utf-8") as file:
 if config['Prefix'] is None:
     print("[Error] Prefix not found!")
     exit()
+if config['OwnerID'] is None:
+    print("[Error] OwnerID not found!")
+    exit()
 
 warnings.simplefilter('ignore', ruamel.yaml.error.UnsafeLoaderWarning)
 

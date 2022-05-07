@@ -25,11 +25,15 @@ class Help(commands.Cog):
                 embed.add_field(name="🎮 Games", value=f"`Game Commands`")
                 embed.add_field(name="🌎 Fun", value=f"`Fun Commands`")
                 embed.add_field(name="🛒 Shop", value=f"`Shopping Commands`")
+                if ctx.author.id == int(config["OwnerID"]):
+                    embed.add_field(name="🔧 Developer", value=f"`Developer Commands`")
 
                 msg = await ctx.reply(embed=embed)
                 await msg.add_reaction("🎮")
                 await msg.add_reaction("🌎")
                 await msg.add_reaction("🛒")
+                if ctx.author.id == int(config["OwnerID"]):
+                    await msg.add_reaction("🔧")
 
 
                 def check(reaction, user):
@@ -65,6 +69,14 @@ class Help(commands.Cog):
                                               description="```shop```")
                         embed.add_field(name="Examples:",
                                         value=f"```🛒 {prefix}shop [buy] [<item>] - Displays the shop or buys an item.```")
+                        await msg.edit(embed=embed)
+                    elif reaction.emoji == "🔧":
+                        # remove all reactions
+                        await msg.clear_reactions()
+                        embed = discord.Embed(title="🔧 Maintenance Commands",
+                                              description="```maintenance```")
+                        embed.add_field(name="Examples:",
+                                        value=f"```🔧 {prefix}maintenance - Enables maintenance mode. If you are planning on updating the bot, or going offline for a while, use this command. It prevents game creation and some other command to prevent issues in the future!```")
                         await msg.edit(embed=embed)
 
                 except asyncio.TimeoutError:
