@@ -177,6 +177,18 @@ for fn in listdir("System"):
         logging.info(f"Loading: {fn} System")
         client.load_extension(f"System.{fn[:-3]}")
         logging.info(f"Loaded {fn} System")
+
+for fn in listdir("Games/Singleplayer"):
+    if fn.endswith(".py"):
+        logging.info(f"Loading: {fn} Singleplayer Version")
+        client.load_extension(f"Games.Singleplayer.{fn[:-3]}")
+        logging.info(f"Loaded {fn} Singleplayer Version")
+
+for fn in listdir("Games/Multiplayer"):
+    if fn.endswith(".py"):
+        logging.info(f"Loading: {fn} Multiplayer Version")
+        client.load_extension(f"Games.Multiplayer.{fn[:-3]}")
+        logging.info(f"Loaded {fn} Multiplayer Version")
 logging.info("------------- Finished Loading -------------")
 
 # Getting the token from the .env file and then running the bot with that token.

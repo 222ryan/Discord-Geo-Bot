@@ -50,5 +50,11 @@ guess_shape_price: 5000
 # Guess Shape coins per win (Default: 300)
 guess_shape_coins_per_win: 300
 
+# The price to buy the Guess Shape game for multiplayer (Default: 5000)
+multiplayer_guess_shape_price: 7500
+
+# Participation Coins for Guess Shape Multiplayer (Default: 300)
+multiplayer_guess_shape_coins_per_participation: 30
+
 # Whether the help command is enabled or disabled (Default: true)
 help_enabled: true

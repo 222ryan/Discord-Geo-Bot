@@ -45,12 +45,16 @@ class Help(commands.Cog):
                         # remove all reactions
                         await msg.clear_reactions()
                         embed = discord.Embed(title="🎮 Game Commands",
-                                              description="```play, gtf, hol, gs, quit```")
+                                              description="```play, quit, leave, join, findmatch, invite```")
                         embed.add_field(name="Examples:",
-                                        value=f"```🎮 {prefix}play <gameName> - Starts a game in your own custom channel\n"
-                                              f"🏳️ {prefix}gtf - Starts the 'Guess The Flag' game. You must have used the play command.\n"
-                                              f"⬆️ {prefix}hol - Starts the 'Higher Or Lower' game. You must have bought the game and used the play command.\n"
-                                              f"🟩 {prefix}gs - Starts the 'Guess The Shape' game. You must have bought the game and used the play command.```")
+                                        value=f"```🎮 {prefix}play <gameName> [<public|private>] [<key>]- Starts a game in your own custom channel\n"
+                                              f"🎮 {prefix}quit - Deletes your game (Only works if you're the one who created it)\n"
+                                              f"🎮 {prefix}leave - Leaves the game you're in (Only works if you're not the host)\n"
+                                              f"🎮 {prefix}join <user> [<key>] - Joins another users multiplayer game\n"
+                                              f"🎮 {prefix}findmatch <game> - Lets you find all public games by the game type you specified\n"
+                                              f"🎮 {prefix}invite <user> - Invites a user to your game```")
+
+
                         await msg.edit(embed=embed)
 
                     elif reaction.emoji == "🌎":

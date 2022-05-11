@@ -153,7 +153,8 @@ async def alldata():
                  ['Rwanda', 26338, 'https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/rw.png'],
                  ['Republic of North Macedonia', 25713,
                   'https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/mk.png'],
-                 ['Djibouti', 23200, 'https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/dj.png']]
+                 ['Djibouti', 23200, 'https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/dj.png'],
+                 ['Scotland', 77910, 'https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/gb-sct.png']]
 
     country_list = []
     for country in countries:
@@ -238,7 +239,7 @@ async def getiso(country):
                  ["Turks and Caicos Islands", "TC"], ["Tuvalu", "TV"], ["Uganda", "UG"], ["Ukraine", "UA"],
                  ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States", "US"], ["Uruguay", "UY"],
                  ["Uzbekistan", "UZ"],
-                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Viet Nam", "VN"], ["Virgin Islands", "VG"],
+                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Vietam", "VN"], ["Virgin Islands", "VG"],
                  ["Virgin Islands, U.s.", "VI"], ["Wallis and Futuna", "WF"], ["Western Sahara", "EH"], ["Yemen", "YE"],
                  ["Zambia", "ZM"], ["Zimbabwe", "ZW"], ]
     for i in countries:
@@ -303,7 +304,7 @@ async def getcountryimage(country):
                  ["Turks and Caicos Islands", "TC"], ["Tuvalu", "TV"], ["Uganda", "UG"], ["Ukraine", "UA"],
                  ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States", "US"], ["Uruguay", "UY"],
                  ["Uzbekistan", "UZ"],
-                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Viet Nam", "VN"], ["Virgin Islands", "VG"],
+                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Vietam", "VN"], ["Virgin Islands", "VG"],
                  ["Virgin Islands, U.s.", "VI"], ["Wallis and Futuna", "WF"], ["Western Sahara", "EH"], ["Yemen", "YE"],
                  ["Zambia", "ZM"], ["Zimbabwe", "ZW"], ]
     for i in countries:
@@ -367,8 +368,9 @@ async def allisocountries():
                  ["Thailand", "TH"], ["Timor-Leste", "TL"], ["Togo", "TG"], ["Tokelau", "TK"], ["Tonga", "TO"],
                  ["Trinidad and Tobago", "TT"], ["Tunisia", "TN"], ["Turkey", "TR"], ["Turkmenistan", "TM"],
                  ["Turks and Caicos Islands", "TC"], ["Tuvalu", "TV"], ["Uganda", "UG"], ["Ukraine", "UA"],
-                 ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States", "US"], ["Uruguay", "UY"], ["Uzbekistan", "UZ"],
-                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Viet Nam", "VN"], ["Virgin Islands", "VG"],
+                 ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States", "US"], ["Uruguay", "UY"],
+                 ["Uzbekistan", "UZ"],
+                 ["Vanuatu", "VU"], ["Venezuela", "VE"], ["Vietam", "VN"], ["Virgin Islands", "VG"],
                  ["Virgin Islands, U.s.", "VI"], ["Wallis and Futuna", "WF"], ["Western Sahara", "EH"], ["Yemen", "YE"],
                  ["Zambia", "ZM"], ["Zimbabwe", "ZW"], ]
 

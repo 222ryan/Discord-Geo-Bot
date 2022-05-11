@@ -56,11 +56,12 @@ class Weather(commands.Cog):
 
                     embed = discord.Embed(title=f"Weather in {location} - {condition}", description=f"```{location}, {region}, {country}\n{time}```")
                     embed.add_field(name="Current Conditions:", value=f"```- The temperature is {temperature}°C\n- Feels like {feelslike}°C"
-                                                                      f"\n- {humidity}% Humidity\n- {wind}mph Wind Speeds\n- It is currently {condition}"
+                                                                      f"\n- {humidity}% Humidity\n- {wind}mph Wind Speeds"
                                                                       f"\n- The pressure is {pressure}mb\n"
                                                                       f"- The sky is {cloudcover}% clouds\n- The wind "
                                                                       f"direction is {wind_dir}\n- The current UV "
                                                                       f"Index is {uv}```", inline=True)
+                    embed.set_footer(text=f"Keep in mind that weather data may be slightly off compared to other sources.")
                     embed.set_thumbnail(url=f"http:{icon}")
                     await ctx.reply(embed=embed)
 def setup(client):

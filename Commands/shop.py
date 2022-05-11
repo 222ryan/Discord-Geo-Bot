@@ -31,6 +31,7 @@ class Shop(commands.Cog):
                 description=f"```Here you can buy Games with the 🪙's you've earned!\nBuy a game with {config['Prefix']}shop buy <game>\nYou have: {await KumosLab.get.coins(user=ctx.author, guild=ctx.guild):,} 🪙```")
             embed.add_field(name="↕️ - HOL (Higher Or Lower)", value=f"```Pick which countries area in km² is larger than the other country\nPrice: {config['higher_lower_price']:,} 🪙\nName: hol```", inline=False)
             embed.add_field(name="🟩 - GS (Guess Shape)", value=f"```Guess the countries name based on the shape of it\nPrice: {config['guess_shape_price']:,} 🪙\nName: gs```", inline=False)
+            embed.add_field(name="🟩 - GSM (Guess Shape Multiplayer)", value=f"```Same as Guess Shape, but with Multiplayer!\nPrice: {config['multiplayer_guess_shape_price']:,} 🪙\nName: gsm```", inline=False)
             await ctx.send(embed=embed)
 
         elif buy.lower() == "buy":
@@ -70,6 +71,7 @@ class Shop(commands.Cog):
                         description=f"```You don't have enough 🪙's to buy this game!```")
                     await ctx.send(embed=embed)
                     return
+
                 else:
                     await KumosLab.add.coins(user=ctx.author, guild=ctx.guild, amount=-config['guess_shape_price'])
                     await KumosLab.add.boughtGame(user=ctx.author, guild=ctx.guild, game="gs")
@@ -78,6 +80,23 @@ class Shop(commands.Cog):
                         description=f"```You bought the game 'Guess Shape' for {config['guess_shape_price']:,} 🪙!```")
                     embed.add_field(name="New Balance", value=f"```{await KumosLab.get.coins(user=ctx.author, guild=ctx.guild):,} 🪙```")
                     await ctx.send(embed=embed)
+            elif item.lower() == "gsm":
+                if await KumosLab.get.coins(user=ctx.author, guild=ctx.guild) < config['multiplayer_guess_shape_price']:
+                    embed = discord.Embed(
+                        title="🛒 CHECKOUT FAILED",
+                        description=f"```You don't have enough 🪙's to buy this game!```")
+                    await ctx.send(embed=embed)
+                    return
+                else:
+                    await KumosLab.add.coins(user=ctx.author, guild=ctx.guild, amount=-config['multiplayer_guess_shape_price'])
+                    await KumosLab.add.boughtGame(user=ctx.author, guild=ctx.guild, game="gsm")
+                    embed = discord.Embed(
+                        title="🛒 CHECKOUT SUCCESSFUL",
+                        description=f"```You bought the game 'Guess Shape Multiplayer' for {config['multiplayer_guess_shape_price']:,} 🪙!```")
+                    embed.add_field(name="New Balance", value=f"```{await KumosLab.get.coins(user=ctx.author, guild=ctx.guild):,} 🪙```")
+                    await ctx.send(embed=embed)
+
+
 
 
 
